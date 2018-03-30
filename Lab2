@@ -1,0 +1,121 @@
+import static java.lang.Math.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String arg[]) {
+        System.out.print("Hello, i'm your personal helper for Hobotov's LabWorks DrujokPirojok!\n");
+        int flag = 0;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Write the number of the task:\n");
+            System.out.print("1.Упр.Запас. без дефицит. прод." + "\n" + "2.Упр.Запас. с дефицит. прод." + "\n" + "3.Многопродукт. задач. без дефицит. прод." + "\n" + "4.Упр.Запас. с накопителем p>r" + "\n" + "5.Задачи с запасными частями" + "\n");
+
+            int NumberTask;
+            NumberTask = in.nextInt();
+
+            if (NumberTask == 1) {
+                System.out.println("Input data:");
+                System.out.print("R=");
+                double R = in.nextInt();
+                System.out.print("T=");
+                double T = in.nextInt();
+                System.out.print("Cxp=");
+                double Cxp = in.nextInt();
+                System.out.print("Cs=");
+                double Cs = in.nextInt();
+
+                double q = sqrt((2 * R * Cs) / (T * Cxp));
+                double ts = sqrt((2 * T * Cs) / (R * Cxp));
+                double D = ((Cxp * T * q) / 2) + ((Cs * R) / 2);
+                System.out.print("q=" + q + "\n" + "ts=" + ts + "\n" + "D=" + D + "\n");
+            }
+
+            if (NumberTask == 2) {
+                System.out.println("Input data:");
+                System.out.print("R=");
+                double R = in.nextInt();
+                System.out.print("T=");
+                double T = in.nextInt();
+                System.out.print("Cxp=");
+                double Cxp = in.nextInt();
+                System.out.print("C2=");
+                double C2 = in.nextInt();
+                System.out.print("Cs=");
+                double Cs = in.nextInt();
+
+                double q = sqrt((2 * R * Cs * (Cxp+C2))/(T * Cxp * C2));
+                double s = sqrt((2 * R * Cs * C2)/(T * Cxp * (Cxp+C2)));
+                double ts = sqrt((2 * T * Cs * (Cxp+C2)) / (R * Cxp * C2));
+                double D = (((Cxp * T * s * s) / (2*q)) + ((C2 * (q-s) * (q-s)) / (2*q)) + ((Cs * R) / q));
+                System.out.print("q=" + q + "\n" + "s=" + s + "\n" + "ts=" + ts + "\n" + "D=" + D + "\n");
+            }
+
+            if (NumberTask == 3) {
+                System.out.println("Input data:");
+                double [] r = new double[3];
+                for (int i=0;i<3;i++){
+                    System.out.print("r"+i+"=");
+                    r[i] = in.nextInt();
+                }
+                double [] C = new double[3];
+                for (int i=0;i<3;i++){
+                    System.out.print("C"+i+"=");
+                    C[i] = in.nextInt();
+                }
+                System.out.print("Cs=");
+                    double Cs = in.nextInt();
+                System.out.print("T=");
+                    double T = in.nextInt();
+
+                double ts = sqrt((2 * Cs) / (C[0]*r[0]+C[1]*r[1]+C[2]*r[2]));
+                double [] Q1 = new double[3];
+                Q1[0]=r[0]*ts;
+                Q1[1]=r[1]*ts;
+                Q1[2]=r[2]*ts;
+                double D = ((((C[0]*r[0]+C[1]*r[1]+C[2]*r[2])*T*ts) / 2) + ((Cs * T) / ts));
+                System.out.print("ts=" + ts + "\n" + "q1=" + Q1[0] + "\n" + "q2=" + Q1[1] + "\n" + "q3=" + Q1[2] + "\n" + "D=" + D + "\n");
+            }
+
+            if (NumberTask == 4) {
+                System.out.println("Input data:");
+                System.out.print("p=");
+                double p = in.nextInt();
+                System.out.print("r=");
+                double r = in.nextInt();
+                System.out.print("Cs=");
+                double Cs = in.nextInt();
+                System.out.print("Cxp=");
+                double Cxp = in.nextInt();
+                System.out.print("T=");
+                double T = in.nextInt();
+
+                double q = sqrt((2 * Cs * p * r)/( (p-r) * Cxp));
+                double qwave = (((p-r)*q)/p);
+                double t1 = (qwave/(p-r));
+                double ts = ((p*t1)/r);
+                double D = (((Cxp * (p-r) * T *q) / (2 * p)) + ((Cs * r * T) / q));
+                System.out.print("Q=" + qwave + "\n" + "t1=" + t1 + "\n" + "ts=" + ts + "\n" +"q=" + q + "\n" + "D=" + D + "\n");
+                //формулы по методе, неизвестно откуда брать значение T
+            }
+
+            if (NumberTask == 5) {
+                System.out.println("IN DEVELOPING!!!");}
+                /* IN DEVELOPING!!!
+                System.out.print("R=");
+                double R = in.nextInt();
+                System.out.print("T=");
+                double T = in.nextInt();
+                System.out.print("Cxp=");
+                double Cxp = in.nextInt();
+                System.out.print("Cs=");
+                double Cs = in.nextInt();
+
+                double q = sqrt((2 * R * Cs) / (T * Cxp));
+                double ts = sqrt((2 * T * Cs) / (R * Cxp));
+                double D = ((Cxp * T * q) / 2) + ((Cs * R) / 2);
+                System.out.print("q=" + q + "\n" + "ts=" + ts + "\n" + "D=" + D + "\n");
+            }*/
+            System.out.print("****************************************************\n");
+        } while (flag !=1);
+    }
+}
