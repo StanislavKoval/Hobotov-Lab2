@@ -99,22 +99,32 @@ public class Main {
             }
 
             if (NumberTask == 5) {
-                System.out.println("IN DEVELOPING!!!");}
-                /* IN DEVELOPING!!!
-                System.out.print("R=");
-                double R = in.nextInt();
-                System.out.print("T=");
-                double T = in.nextInt();
-                System.out.print("Cxp=");
-                double Cxp = in.nextInt();
-                System.out.print("Cs=");
-                double Cs = in.nextInt();
+                int blackflag = 0;
+                do{
+                    System.out.println ("Тип детали:  " + blackflag);
+                System.out.print("C1=");
+                double C1 = in.nextInt();
+                System.out.print("C2=");
+                double C2 = in.nextInt();
+                double [] p = new double[6];
+                System.out.print("ВВОД ЧИСЛА ЧЕРЕЗ ЗАПЯТУЮ \n");
+                for (int i=0;i<6;i++) {
+                    System.out.print("p" + i + "=");
+                    p[i] = in.nextDouble();
+                }
+                double [] Q = new double[6];
+                Q[5]=C1*(p[0]*5+p[1]*4+p[2]*3+p[3]*2+p[4]*1+p[5]*0);
+                Q[4]=C1*(p[0]*4+p[1]*3+p[2]*2+p[3]*1+p[4]*0)+C2*(p[5]*1);
+                Q[3]=C1*(p[0]*3+p[1]*2+p[2]*1+p[3]*0)+C2*(p[5]*2+p[4]*1);
+                Q[2]=C1*(p[0]*2+p[1]*1+p[2]*0)+C2*(p[5]*3+p[4]*2+p[3]*1);
+                Q[1]=C1*(p[0]*1+p[1]*0)+C2*(p[5]*4+p[4]*3+p[3]*2+p[2]*1);
+                Q[0]=C2*(p[5]*5+p[4]*4+p[3]*3+p[2]*2+p[1]*1+p[0]*0);
 
-                double q = sqrt((2 * R * Cs) / (T * Cxp));
-                double ts = sqrt((2 * T * Cs) / (R * Cxp));
-                double D = ((Cxp * T * q) / 2) + ((Cs * R) / 2);
-                System.out.print("q=" + q + "\n" + "ts=" + ts + "\n" + "D=" + D + "\n");
-            }*/
+
+                System.out.print("Q(s=0)=" + Q[0] + "\n" + "Q(s=1)=" + Q[1] + "\n" + "Q(s=2)=" + Q[2] + "\n" + "Q(s=3)=" + Q[3] + "\n" + "Q(s=4)=" + Q[4] + "\n" + "Q(s=5)=" + Q[5] + "\n");
+                System.out.println ("И вот тут я конечно малость не доделал, нужно выбрать наименьшее значение Q, а в программу Хоботова вбить соответствующее значение s\n");
+                            blackflag++;
+            } while (blackflag != 2);}
             System.out.print("****************************************************\n");
         } while (flag !=1);
     }
